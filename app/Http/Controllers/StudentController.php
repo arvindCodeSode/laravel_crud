@@ -187,7 +187,7 @@ class StudentController extends Controller
         $student=Student::whereId($id)->update($form_data);
         
         if( $student ){
-            return back()->with("success","data updated successfully. Please fill the profile form")->with("user_id", $id );
+            return back()->with("success","data updated successfully.")->with("user_id", $id );
         }
         else{
             return back()->with("error","There was an error form not submitted ");
@@ -197,9 +197,6 @@ class StudentController extends Controller
 
     public function update_profile(Request $request ,$id)
     {
-        //
-        // if user not submit student form than this function will not working because user id is not fetch
-        if($request->user_id!=""){
 
             $new_image="";
             $image=$request->file("image");
@@ -236,14 +233,8 @@ class StudentController extends Controller
             $profile=Profile::where("user_id",$id)->update($form_data);
             if($profile){
 
-                return redirect('student')->with("success","student updated successfully");
+                return back()->with("success","Profile data updated successfully");
             }
-        }
-        else{
-
-            return back()->with("error","Please fill the Student form first");
-        }
-        
     }
 
     /**

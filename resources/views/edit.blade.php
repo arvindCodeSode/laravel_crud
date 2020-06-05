@@ -35,7 +35,7 @@
             {{ $error }}
         </div>
 @endif
-
+<a href="/student" class='btn btn-primary mb-3'>Back</a>
 <div class="row">
     <!-- student detail form -->
     <div class="col-md-5  border p-3">
@@ -49,18 +49,21 @@
                 <input type="text" name="name" value="{{ $student->name }}"  id="class" class="form-control">
             
             </div>
+            <br />
             <div class="form-group">
                
                 <label for="class">Standered</label>
                 <input type="text" name="class"   value="{{ $student->class }}" id="class" class="form-control">
             
             </div>
+            <br />
             <div class="form-group">
                 
                 <label for="email">Email</label>
                 <input type="text" name="email" id="email"  value="{{ $student->email }}" class="form-control">
             
             </div>
+            <br />
             <div class="form-group">
             
                 <label for="phone">Phone Number</label>
@@ -80,11 +83,10 @@
     <div class="col-md-1"></div>
     
     <div class="col-md-5 border p-3">
-        
+    <h3 class="text-center">Profile</h3>        
         <form action="{{ route('update_profile', $student->id) }}" id='profile_form' method='Post' enctype="multipart/form-data">
         @csrf
         @method("PATCH")
-            <h3 class="text-center">Profile</h3>
             
             <div class="form-group mt-2">
                 
@@ -106,13 +108,7 @@
                 jo batata he ki pahle student form submit karan he fir bad me profile form
              -->
             <input type="hidden" id='user_id' name="user_id" 
-            value="
-            @if($user_id = session('user_id'))
-                {{ $user_id }}
-            @else
-            {{ old('user_id') }}
-            @endif
-            ">
+            value="{{ $student->id }}">
             <div class="form-group">
             
                 <label for="hobbies">Hobbies</label>

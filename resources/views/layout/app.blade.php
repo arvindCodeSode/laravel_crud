@@ -17,7 +17,7 @@
     </head>
     <body>
         <div class="container">
-        <h1 class="text-center bg-dark text-white p-2">List of Student</h1>    
+        <h1 class="text-center bg-dark text-white p-2">List of Students</h1>    
         
         <br /> 
 
